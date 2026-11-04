@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   pa.c                                              :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: edogruer <edogruer@student.42istanbul.com.#+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/09 17:47:49 by edogruer         #+#    #+#              */
-/*   Updated: 2026/09/17 23:03:02 by edogruer        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   pa.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mutalay <mutalay@student.42istanbul.com.tr +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/09 17:47:49 by edogruer          #+#    #+#             */
+/*   Updated: 2026/10/07 15:25:16 by mutalay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_node **stack_a, t_node **stack_b, int print)
+void	pa(t_node **stack_a, t_node **stack_b, t_operations *op_count)
 {
 	t_node	*tmp;
 
@@ -20,6 +20,9 @@ void	pa(t_node **stack_a, t_node **stack_b, int print)
 		return ;
 	tmp = pop_node(stack_b);
 	push_node(stack_a, tmp);
-	if (print)
+	if (op_count)
+	{
+		op_count->pa++;
 		write(1, "pa\n", 3);
+	}
 }

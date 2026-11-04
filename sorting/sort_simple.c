@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   sort_simple.c                                     :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: edogruer <edogruer@student.42istanbul.com.#+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/15 18:19:54 by edogruer         #+#    #+#              */
-/*   Updated: 2026/09/18 18:06:32 by edogruer        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   sort_simple.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mutalay <mutalay@student.42istanbul.com.tr +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/15 18:19:54 by edogruer          #+#    #+#             */
+/*   Updated: 2026/10/07 18:03:40 by mutalay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_node *a)
-{
-	t_node	*cur;
-
-	if (!a)
-		return (1);
-	cur = a;
-	while (cur->next != a)
-	{
-		if (cur->value > cur->next->value)
-			return (0);
-		cur = cur->next;
-	}
-	return (1);
-}
-
-int	find_min_index(t_node *a)
+static int	find_min_index(t_node *a)
 {
 	int		min_val;
 	int		min_idx;
@@ -54,7 +38,8 @@ int	find_min_index(t_node *a)
 	return (min_idx);
 }
 
-void	rotate_to_top(t_node **a, int index, int size)
+static void	rotate_to_top(t_node **a, int index, int size,
+		t_operations *opr_count)
 {
 	int	i;
 
@@ -63,7 +48,7 @@ void	rotate_to_top(t_node **a, int index, int size)
 	{
 		while (i < index)
 		{
-			ra(a, 1);
+			ra(a, opr_count);
 			i++;
 		}
 	}
@@ -71,27 +56,25 @@ void	rotate_to_top(t_node **a, int index, int size)
 	{
 		while (i < size - index)
 		{
-			rra(a, 1);
+			rra(a, opr_count);
 			i++;
 		}
 	}
 }
 
-void	sort_simple(t_node **a, t_node **b)
+void	sort_simple(t_node **a, t_node **b, t_operations *opr_count)
 {
 	int	size;
 	int	min;
 
-	if (is_sorted(*a))
-		return ;
 	size = stack_size(*a);
 	while (*a)
 	{
 		min = find_min_index(*a);
-		rotate_to_top(a, min, size);
-		pb(a, b, 1);
+		rotate_to_top(a, min, size, opr_count);
+		pb(a, b, opr_count);
 		size = size - 1;
 	}
 	while (*b)
-		pa(a, b, 1);
+		pa(a, b, opr_count);
 }

@@ -5,13 +5,14 @@ LIBFT_DIR	= libft
 LIBFT		= $(LIBFT_DIR)/libft.a
 SRCS = 		main.c \
 				parsing/parse_args.c parsing/parsing_utils.c parsing/free_utils.c \
-				utils/node_utils.c \
+				utils/node_utils.c utils/stack_utils.c utils/disorder.c utils/bench.c\
+				sorting/sort_adaptive.c sorting/sort_simple.c \
+				sorting/sort_complex.c sorting/sort_medium.c sorting/medium_utils.c \
 				operations/sa.c operations/sb.c operations/ss.c \
 				operations/pa.c operations/pb.c operations/ra.c \
 				operations/rb.c operations/rr.c operations/rra.c  \
 				operations/rrb.c operations/rrr.c
 OBJS		= $(SRCS:.c=.o)
-
 
 all: $(NAME)
 

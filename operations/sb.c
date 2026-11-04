@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                       :::      ::::::::    */
-/*   sb.c                                              :+:      :+:    :+:    */
-/*                                                   +:+ +:+         +:+      */
-/*   By: edogruer <edogruer@student.42istanbul.com.#+#  +:+       +#+         */
-/*                                               +#+#+#+#+#+   +#+            */
-/*   Created: 2026/09/09 17:33:56 by edogruer         #+#    #+#              */
-/*   Updated: 2026/09/16 14:43:01 by edogruer        ###   ########.fr        */
+/*                                                        :::      ::::::::   */
+/*   sb.c                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mutalay <mutalay@student.42istanbul.com.tr +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/09 17:33:56 by edogruer          #+#    #+#             */
+/*   Updated: 2026/10/07 15:27:36 by mutalay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sb(t_node **stack_b, int print)
+void	sb(t_node **stack_b, t_operations *op_count)
 {
 	int	temp;
 
@@ -21,6 +21,9 @@ void	sb(t_node **stack_b, int print)
 	temp = (*stack_b)->value;
 	(*stack_b)->value = (*stack_b)->next->value;
 	(*stack_b)->next->value = temp;
-	if (print)
+	if (op_count)
+	{
 		write(1, "sb\n", 3);
+		op_count->sb++;
+	}
 }
