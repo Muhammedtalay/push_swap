@@ -8,6 +8,7 @@ SRCS = 		main.c \
 				utils/node_utils.c utils/stack_utils.c utils/disorder.c utils/bench.c\
 				sorting/sort_adaptive.c sorting/sort_simple.c \
 				sorting/sort_complex.c sorting/sort_medium.c sorting/medium_utils.c \
+				sorting/complex_utils.c \
 				operations/sa.c operations/sb.c operations/ss.c \
 				operations/pa.c operations/pb.c operations/ra.c \
 				operations/rb.c operations/rr.c operations/rra.c  \
