@@ -6,7 +6,7 @@
 /*   By: mutalay <mutalay@student.42istanbul.com.tr +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/07 17:57:08 by mutalay           #+#    #+#             */
-/*   Updated: 2026/11/11 15:34:58 by mutalay          ###   ########.fr       */
+/*   Updated: 2026/11/11 16:10:32 by mutalay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,9 @@ static void	radix_sort(t_node **a, t_node **b, int max_bits, t_operations *opr)
 void	sort_complex(t_node **a, t_node **b, t_operations *opr_count)
 {
 	int	size;
-	int	i;
 	int	max_bits;
 
 	size = stack_size(*a);
-	i = 0;
 	max_bits = get_max_bits(size);
 	radix_sort(a, b, max_bits, opr_count);
 }

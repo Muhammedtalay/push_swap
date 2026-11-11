@@ -6,7 +6,7 @@
 /*   By: mutalay <mutalay@student.42istanbul.com.tr +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 19:51:02 by mutalay           #+#    #+#             */
-/*   Updated: 2026/11/11 14:35:49 by mutalay          ###   ########.fr       */
+/*   Updated: 2026/11/11 16:45:24 by mutalay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	get_max_bits(int size)
 	int	max_index;
 	int	bits;
 
-	max_index = size -1;
+	max_index = size - 1;
 	bits = 0;
 	while (max_index > 0)
 	{
